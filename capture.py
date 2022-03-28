@@ -11,7 +11,7 @@ active_http_code=[100,101,200,201,202,203,204,205,206]
 potential_active_http_code=[000,300,301,302,303,304,305,307]
 def read():
     web_list=[]
-    with open('./phishing.txt') as f:
+    with open('./phishing-domains-ACTIVE.txt') as f:
         for line in f.readlines():
             web_list.append(str(line))
     return web_list
