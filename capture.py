@@ -7,10 +7,11 @@ import os
 import time
 
 import requests
-
+active_http_code=[100,101,200,201,202,203,204,205,206]
+potential_active_http_code=[000,300,301,302,303,304,305,307]
 def read():
     web_list=[]
-    with open('./phishing-domains-ACTIVE.txt') as f:
+    with open('./phishing.txt') as f:
         for line in f.readlines():
             web_list.append(str(line))
     return web_list
@@ -30,7 +31,7 @@ def catch(web_list):
                        }
             r = requests.get(target,headers=headers,timeout=(5,10))
             print(r)
-            if r.status_code == 200 or r.status_code== 301 or r.status_code== 302:
+            if r.status_code in active_http_code or r.status_code in potential_active_http_code:
                 with open('working_sites.txt', 'a') as fo:
                     fo.write(target + '\n')
             else:
@@ -43,6 +44,7 @@ def catch(web_list):
                 st = '  '+str(i+1)+w
                 with open('log.txt', 'w') as f:
                     f.write(w)
+                exit(0)
 
 if __name__=='__main__':
     wl=read()
