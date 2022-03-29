@@ -11,7 +11,7 @@ if __name__=='__main__':
         i+=1
         if i-p*3000==3000 or i==len(web_list)-1:
             p=p+1
-            target='phishing'+str(p)+'.txt'
+            target=str(p)+'.txt'
             with open(target,'a') as fout:
                 for t in range(0,len(new)-1):
                     fout.write(new[t])
