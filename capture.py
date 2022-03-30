@@ -24,10 +24,10 @@ def catch(web_list):
                        'Accept-Encoding': 'gzip, deflate',
                        'Accept-Language': 'zh-TW,zh-CN;q=0.9,zh;q=0.8,en-US;q=0.7,en;q=0.6'
                        }
-            r = requests.get(target,headers=headers,timeout=(3,5))
+            r = requests.get(target,headers=headers,timeout=(2,3))
             print(r)
             if r.status_code in active_http_code or r.status_code in potential_active_http_code:
-                with open('sites'+filename+'.txt', 'a') as fo:
+                with open('site'+filename+'.txt', 'a') as fo:
                     fo.write(target + '\n')
             else:
                 continue
