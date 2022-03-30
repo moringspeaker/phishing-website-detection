@@ -1,4 +1,4 @@
-name: spider1
+name: spider20
 on:
   push:
     branches: [master]
@@ -21,7 +21,7 @@ jobs:
     - name: run_my_program
       run: python capture.py
       env:
-        FILE_NAME: 1
+        FILE_NAME: 20
     - name: Send mail
       uses: dawidd6/action-send-mail@v3
       with:
@@ -33,4 +33,4 @@ jobs:
         to: 1549159420@qq.com
         from: Guchenyu
         secure: true
-        body: file://site1.txt
+        body: file://site20.txt

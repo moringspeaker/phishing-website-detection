@@ -1,17 +1,12 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as ec
 import os
-import time
 
 import requests
 active_http_code=[100,101,200,201,202,203,204,205,206]
 potential_active_http_code=[000,300,301,302,303,304,305,307]
+filename=str(os.environ['FILE_NAME'])
 def read():
     web_list=[]
-    with open('./phishing-domains-ACTIVE.txt') as f:
+    with open(filename+'.txt','r') as f:
         for line in f.readlines():
             web_list.append(str(line))
     return web_list
@@ -32,7 +27,7 @@ def catch(web_list):
             r = requests.get(target,headers=headers,timeout=(3,5))
             print(r)
             if r.status_code in active_http_code or r.status_code in potential_active_http_code:
-                with open('working_sites.txt', 'a') as fo:
+                with open('sites'+filename+'.txt', 'a') as fo:
                     fo.write(target + '\n')
             else:
                 continue
