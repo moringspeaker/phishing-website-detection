@@ -33,4 +33,4 @@ jobs:
         to: 1549159420@qq.com
         from: Guchenyu
         secure: true
-        attachments: file://site2.txt
+        attachments: ./site2.txt
