@@ -23,7 +23,6 @@ jobs:
         run: python capture.py
         env:
           FILE_NAME: "1"
-
   job2:
     build:
       runs-on: windows-latest
@@ -41,7 +40,6 @@ jobs:
         run: python capture.py
         env:
           FILE_NAME: "2"
-
   job3:
     needs: [job1,job2]
     build:
