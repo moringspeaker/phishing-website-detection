@@ -21,7 +21,7 @@ jobs:
     - name: run_my_program
       run: python capture.py
       env:
-        FILE_NAME: 0
+        FILE_NAME: 2
     - name: Send mail
       uses: dawidd6/action-send-mail@v3
       with:
